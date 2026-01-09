@@ -11,8 +11,10 @@
 # following image illustrates this coordinate system:
 #   https://tinyurl.com/yc78vxr5
 
-# This is a type alias (aka type synonym).
+# This is a type alias (aka type synonym):
+
 pos = str
+
 # The type alias "pos" is synonymous with "str"; we use "pos" as a
 # type in the code below to make clear when a particular string is
 # meant to represent a location on a chess board (as opposed to being
@@ -31,6 +33,7 @@ pos = str
 # Write the code without enumerating all 64 possibilities.
 # (In code, fully enumerating all possibilities should be avoided when
 # easy to avoid.)
+
 def valid_pos(s : str) -> bool:
     raise NotImplementedError('valid_pos')
 
@@ -49,6 +52,7 @@ def valid_pos(s : str) -> bool:
 # location. Assume the board is empty; i.e., there are no obstacles
 # anywhere.
 # If p is not a valid chess position, GIGO.
+
 def rook(p : pos) -> set[pos]:
     raise NotImplementedError('rook')
 
@@ -56,12 +60,14 @@ def rook(p : pos) -> set[pos]:
 # location. Assume the board is empty; i.e., there are no obstacles
 # anywhere.
 # If p is not a valid chess position, GIGO.
+
 def bishop(p : pos) -> set[pos]:
-    raise NotImplementedError('TODO: bishop')
+    raise NotImplementedError('bishop')
 
 # queen: produce all locations a queen could move to from the given
 # location.  Assume the board is empty; i.e., there are no obstacles
 # anywhere.
 # If p is not a valid chess position, GIGO.
+
 def queen(p : pos) -> set[pos]:
-    raise NotImplementedError('TODO: queen')
+    raise NotImplementedError('queen')
