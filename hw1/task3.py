@@ -26,4 +26,4 @@ def increasing_paths(t: TreeNode) -> list[list[int]]:
        of root-to-leaf values) where the values in the path are in increasing
        order
     """
-    raise NotImplementedError("todo: incrementing_paths")
+    raise NotImplementedError("todo: increasing_paths")
