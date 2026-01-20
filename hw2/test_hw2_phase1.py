@@ -46,19 +46,19 @@ def test_task2_is_leaf_00() -> None:
   t = task2.BSTNode(2,task2.BSTEmpty(),task2.BSTEmpty())
   assert t.is_leaf()
 
-def test_num_nodes_00() -> None:
+def test_task2_num_nodes_00() -> None:
   t = task2.BSTNode(2,task2.BSTEmpty(),task2.BSTEmpty())
   assert t.num_nodes()==1
 
-def test_height_00() -> None:
+def test_task2_height_00() -> None:
   t = task2.BSTNode(2,task2.BSTEmpty(),task2.BSTEmpty())
   assert t.height()==1
 
-def test_elements_00() -> None:
+def test_task2_elements_00() -> None:
   t = task2.BSTNode(2,task2.BSTEmpty(),task2.BSTEmpty())
   assert t.elements()==[2]
 
-def test_elements_01() -> None:
+def test_task2_elements_01() -> None:
   t = task2.BSTNode(2,task2.BSTEmpty(),task2.BSTEmpty())
   assert t.insert(3).elements()==[2,3]
 
@@ -97,11 +97,11 @@ def test_task3_max_01() -> None:
   assert t._max==1 and t.max()==1
 
 def test_task3_mean_00() -> None:
-  t = task3.BSTNodePre(1,task2.BSTEmpty(),task2.BSTEmpty())
+  t = task3.BSTNodePre(1,task3.BSTEmpty(),task3.BSTEmpty())
   assert t._mean==1 and t.mean()==1
 
 def test_task3_median_00() -> None:
-  t = task3.BSTNodePre(1,task2.BSTEmpty(),task2.BSTEmpty())
+  t = task3.BSTNodePre(1,task3.BSTEmpty(),task3.BSTEmpty())
   assert t._median==1 and t.median()==1
   
 # --- Task 4
