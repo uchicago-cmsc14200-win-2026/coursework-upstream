@@ -1,0 +1,80 @@
+CMSC 14200 Winter 2026
+Discussion 3
+January 20 and 21, 2026
+
+Completing this (ungraded) exercise will take you further in the
+direction of being able to build interactive games.
+
+Please review this whole document before writing code. You may work
+with another person on this task if you like. Please stay completely
+away from LLMs like ChatGPT or Claude; using any such tool would
+defeat the purpose of the work.
+
+The coding task is to be able to calculate whether a disc in a field
+of discs has been clicked on or not. Please watch the demonstration
+video (on Panopto) to see how your application should behave.
+
+Pulling from the upstream repository will supply you with
+
+- clickdiscs.py, a framework for the code, and
+
+- an assets directory containing some relevant images (look inside
+  it).
+
+====== RESPONDING TO CLICKS
+
+When the player/user clicks on the pygame window, a `MOUSEBUTTONDOWN`
+event happens. Immediately thereafter, the (x,y) position of the click
+is available in the variable `event.pos`, which is a pair of integers
+(a `tuple[int,int]`, in mypy terms). You will need to use `event.pos`
+to determine whether or not you have clicked on a disc.
+
+====== DRAWING
+
+A refresher: to draw circles, use pygame.draw.circle, as in
+
+  pygame.draw.circle(surface, color, center, radius)
+
+For example:
+
+  pygame.draw.circle(self.surface, (0,0,0), (100,80), 30)
+
+There are "letter tiles" in `assets` that you can use as labels for
+the discs. The letter tiles are images in the bmp (bitmag) format,
+which seems to be the most convenient one for pygame.
+
+To draw an image on a pygame surface, the commands are
+
+  img = pygame.image.load([filename])
+  surface.blit(img,[position])
+
+For example, to draw the light blue A tile from assets on the screen,
+
+  dir = "assets/images/letter-tiles"
+  img = pygame.image.load(dir+"/letter_lightblue_uppercase_A.bmp")
+  surface.blit(img,(0,0))  
+
+(The variable `dir` here is used only to break up what would be a very
+long string.) The `blit` method of the surface draws the image
+argument on that surface, with the coordinate argument as the
+upper-left corner of the drawn image. "Blit" is an old-school computer
+programming abbreviation for "bit-block transfer" and is a verb used
+in graphics programming.
+
+You will notice that the letter tiles, as given, are too large for
+this GUI's window size; you can scale them to different size(s) using
+the function `pygame.transform.scale_by`, as in
+
+  dir = "assets/images/letter-tiles"
+  img = pygame.image.load(dir+"/letter_lightblue_uppercase_A.bmp")
+  img = pygame.transform.scale_by(img,0.5) # the image is now half the size
+  surface.blit(img,(0,0))  
+
+Your GUI should present nine discs, A through I, on the screen. When
+you click on the screen, if you clicked within any disc (anywhere
+within the radius of that disc, not just on its center), the app
+should print a corresponding message to the terminal. If a click is on
+no disc at all, that should also be printed to the terminal.
+
+This exercise, not coincidentally, has substantial overlap with one of
+your in-flight homework tasks. Enjoy the work and happy hacking!
