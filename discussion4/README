@@ -1,0 +1,68 @@
+CMSC 14200 Winter 2026
+Discussion 4
+January 27 and 28, 2026
+
+You may have tried to solve "15 puzzles" in the past. A 15 puzzle
+contains 15 numbered tiles in a 4x4 square arrangement, with one gap
+in addition to the tiles. The challenge is to slide the tiles around
+the puzzle, making use of the gap, to arrange them in order from 1 to
+15. You can try an online 15 puzzle at https://15puzzle.netlify.app.
+
+We have provided for you a TUI (text user interface) framework for a
+15 puzzle that you can play in the terminal. The interactive TUI part
+is already done; you need to implement the methods of the
+SlidingPuzzle class to enable interactive play. Take note of the use
+of the built-in function `input`, which solicits input from the user.
+
+There is a video demo of this exercise in our Panopto stream; please
+have a look.
+
+In the internal representation of a puzzle, we use 0 to represent the
+gap, and the numbers 1 through 15 for the numbered tiles. By
+convention, the tiles are kept in sequence in row order: the first
+four numbers in the list are the top row, the next four are the second
+row, etc.
+
+The methods you need to complete in the SlidingPuzzle class are as
+follows.
+
+__str__()
+
+  Draw the puzzle for gameplay. Instead of displaying numbers 1
+  through 15, use hex digits* 1 through F (1 2 3 4 5 6 7 8 9 A B C D E
+  F). Use a character of your choice for the tile.
+
+  *_Hex digits_ are from the _hexadecimal_ number system, which is
+    base 16. We use hex notation in computer programming often,
+    although we haven't had cause to use it yet in the CS141 or
+    CS142. You will encounter it frequently in CS143 and especially
+    CS144.
+
+up()
+
+  If it is possible to slide a tile up into the gap in the puzzle, do
+  so by repositioning the numbers in the array accordingly. If it is
+  not possible to slide a tile up into the gap, then do nothing. This
+  will be the case when the gap is in the bottom row of the puzzle and
+  there are no tiles below it to slide up.
+
+down()
+right()
+left()
+
+  These are all like the up() method, _mutatus mutandis_.
+
+scramble(n:int)
+
+  This method should make `n` random moves to scramble the
+  puzzle. Note that if the puzzle is simply *shuffled* completely
+  randomly, it might end up in an unsolvable state. By making random
+  legal moves to scramble the puzzle, it is guaranteed that solving
+  the puzzle is possible.
+
+solved() -> bool
+
+  Return True if the puzzle is solved, False otherwise. The puzzle is
+  solved when the first row is 1 to 4, the second is 5 to 8, and so
+  on, with the gap in the very last position.
+
