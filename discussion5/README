@@ -1,0 +1,68 @@
+CMSC 14200 Winter 2026
+Discussion 5
+February 3 and 4, 2026
+
+This week, you will use pygame and a terminal-printing library called
+rich to generate "terminal mosaics" from photograph inputs.
+
+First, a few words about the rich library. It is possible to print
+colorful text in the terminal, as well as to print in bold, italic,
+etc. This can be done with cumbersome codes that look like "\033[1m"
+and "\033[3m"; these are functional, but not user-friendly in any
+sense. Rich allows styles terminal printing to be done in a
+user-friendly way by constructing HTML-like strings specifying the
+desired characteristics in plain language. Try the following commands
+in a Python shell:
+
+>>> import rich
+>>> rich.print("[italic]APPLE[/italic]")
+>>> rich.print("[bold]BANANA[/bold]")
+>>> rich.print("[rgb(255,165,0)]CARROT[/]")
+>>> rich.print("[italic bold rgb(255,165,0)]DAMN![/]")
+
+It is possible not only to specify a foreground text color but also a
+background color, as in
+
+>>> rich.print("[white on red]FEBRUARY 2026[/]")
+
+Note that very common colors like white and red can be referred to by
+name, whilst colors that are not among the most common ones (as in
+CARROT above) can be specified as RGB triples.
+
+(https://rich.readthedocs.io/en/latest/introduction.html)
+
+In order to print a quasi-pixel to the terminal, one can "print" a
+space with an (irrelevant) foreground color and a substantive
+background color, as in
+
+>>> rich.print("[white on blue] [/]")
+
+This prints a blue block, although given the geometry of terminal
+printing, it's a tall rectangle. To get a closer-to-square building
+block, print *two* spaces, as in
+
+>>> rich.print("[white on blue]  [/]")
+
+You have been provided with a framework for a mosaic maker
+application. You should implement the method `mosaic` that is given a
+tile size (a mosaic granularity), analyzes the input image, tile by
+tile, computing average colors for each, and printing corresponding
+"pixels" in the terminal to create an impressionistic echo of the
+original image.
+
+You will need the `get_at` method from pygame, as in
+
+color = self.surface.get_at((x,y))
+
+The `get_at` method returns a pygame Color object, which has
+attributes `r`, `g` and `b`.
+
+(https://www.pygame.org/docs/ref/surface.html#pygame.Surface.get_at)
+
+Your `mosaic` method should contain some kind of loop or nested loops
+that walk over the "tiles" in the original image, sampling the colors
+to compute the mean color of each tile, and write that average color
+to the terminal using `rich.print` and the techniques above. Feel free
+to experiment with different tile sizes and different photographs. You
+will enjoy the results of this when you see them!
+
