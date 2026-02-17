@@ -1,0 +1,52 @@
+CMSC 14200 Winter 2026
+Discussion 7
+February 17 and 18, 2026
+
+This exercise will acquaint you with the method
+`pygame.key.get_pressed()` which will enable your application to react
+to keys that are held down and furthermore react to multiple keys held
+down.
+
+In the accompanying `assets` directory, you will find images of a
+walking character that are frames in an animated sequence. These are
+named `walk0.bmp`,`walk1.bmp`, and so on up to `walk7.bmp`. There is
+also an image of the same character not walking; this is called
+`idle.bmp`. Last but not least, there is a background image of a
+desert scene named `desert.bmp`. The character images are from a
+website of free game assets called `kenney.nl` (recommended!) and the
+desert image is a creation of Nano Banana.
+
+To learn how to use pygame's `get_pressed` method, please take a look
+at the sample program `colors.py`. The get_pressed method returns a
+sequence* of booleans indexed by pygame key constants. The following
+code checks if the a key is pressed at a particular moment:
+
+*It is neither a list nor a tuple, but a custom object supporting
+ subscripting.
+
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_a]:
+        # code...
+
+To check if both a and b were being pressed at the same time, one
+could write
+
+    if keys[pygame.K_a] and keys[pygame.K_b]:
+
+Using `get_pressed` represents a different model than what we have
+been following in pygame programming up to this point. Rather then
+reacting to a user's having struck a key as we do when checking for a
+key event, `get_pressed` asks for the current state of the keyboard at
+that moment in time as opposed to waiting for an event. It is an
+active rather than passive engagement with the keyboard, in other
+words.
+
+Review the `colors.py` code. Once, from reading the code, you
+understand what it does, run it and try it out.
+
+Once you understand `colors.py`, try completing the code in
+`walker.py`. The comments in that file explain what needs to be
+done. Once the code is complete, the character will walk left and
+right at two different speeds as outlined in the comments.
+
+(There is no quiz today, just this exercise.)
